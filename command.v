@@ -11,6 +11,8 @@ fn cmd_help(){
     println('vpm install                - reads the $PKG_NAME file and install packages')
     println('vpm -h/help                - show the help message')
     println('vpm clean                  - remove the $PKG_NAME file')
+    println('vpm ls                     - show installed packages list')
+    println('vpm rm <package ...>       - remove packages in the $PKG_NAME file by name')
 }
 
 fn cmd_clean(){
@@ -68,7 +70,7 @@ fn cmd_install(){
         return
     }
     store:=load_to_store() or {
-        println('load $PKG_NAME failed!')
+        load_store_failed()
         return 
     }
 
@@ -81,6 +83,51 @@ fn cmd_install(){
         fetch_pkg_from_git(p.name,p.repo)
     }
     install_complete()
+}
+
+fn cmd_ls(){
+    store:=load_to_store() or {
+        load_store_failed()
+        return 
+    }
+    println('[installed packages]')
+    if store.packages.len==0{
+        return 
+    }
+    for p in store.packages{
+        println('$p.name        --  $p.repo')
+    }
+}
+
+fn cmd_rm(args []string){
+    mut names:=string_array_slice(args,2,args.len)
+    if names.len==0{
+        println('nothing to remove')
+        return
+    }
+    names=string_array_distinct(names)
+    mut store:=load_to_store() or {
+        load_store_failed()
+        return 
+    }
+    if store.packages.len==0{
+        println('nothing to remove')
+        return 
+    }
+    mut pkgs:=[]PkgInfo
+    mut rm_names:=[]string
+    for p in store.packages{
+        if !names.contains(p.name){
+            pkgs<<p
+        }else{
+            rm_names<<p.name
+        }
+    }
+    store.packages=pkgs
+    content:=generate_store_tempate(store)
+    write_to_json(content)
+    rm_name:=rm_names.str()
+    println('remove packages:$rm_name done.')
 }
 
 fn cmd_default(cmd string){

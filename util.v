@@ -50,7 +50,7 @@ fn write_to_json(content string){
 // 保存下载的包信息写入到vpm.json文件
 fn save_pkginfo_to_store(pkg_info PkgInfo){
     mut store:=load_to_store() or {
-        println('load store file failed!')
+        load_store_failed()
         return 
     }
     if check_pkg_exist_in_store(store.packages,pkg_info){

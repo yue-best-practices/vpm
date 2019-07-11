@@ -24,3 +24,7 @@ fn command_not_found(cmd string){
 fn install_complete(){
     println('install done')
 }
+
+fn load_store_failed(){
+    println('load $PKG_NAME failed!')
+}

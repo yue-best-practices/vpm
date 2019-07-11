@@ -14,6 +14,7 @@ struct PkgInfo {
 
 struct Store{
     name string
+mut:
     packages []PkgInfo
 }
 
@@ -40,6 +41,10 @@ fn exec(args []string){
             cmd_version()
         case 'install':
             cmd_install()
+        case 'ls':
+            cmd_ls()
+        case 'rm':
+            cmd_rm(args)
         default:
             cmd_default(cmd)
     }
