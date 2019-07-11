@@ -33,4 +33,4 @@ vpm is a package manager written on V for V.
 | `-h`/`help`    |                           | 显示帮助信息。<br />Show help information.                   |
 | `clean`        |                           | 删除`.vpm.json`文件。<br />Delete the `.vpm.json` file.      |
 | `ls`           |                           | 显示已安装的包列表<br />Show installed packages list         |
-| `rm`           | `<package-name>`...       | 按名称删除.vpm.json文件中的包<br />Remove packages in the .vpm.json file by nam |
+| `rm`           | `<package-name>`...       | 按名称删除.vpm.json文件中的包<br />Remove packages in the .vpm.json file by name |
