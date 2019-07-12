@@ -100,11 +100,13 @@ fn cmd_ls(){
 }
 
 fn cmd_rm(args []string){
-    mut names:=string_array_slice(args,2,args.len)
+    mut names:=args.right(2)
     if names.len==0{
         println('nothing to remove')
         return
     }
+    // todo 当数组去重方法distinct实现后启用
+    //names=names.distinct()
     names=string_array_distinct(names)
     mut store:=load_to_store() or {
         load_store_failed()
