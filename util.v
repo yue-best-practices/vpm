@@ -10,17 +10,18 @@ fn get_vlib_path()string{
 }
 // 根据store结构体，生成json
 fn generate_store_tempate(store Store)string{
-    mut result :='{"name":"$store.name","packages":['
-    if store.packages.len>0{
-        for i,p in store.packages{
-            result+='{"name":"$p.name","repo":"$p.repo"}'
-            if i<store.packages.len-1{
-                result+=','
-            }
-        }
-    }
-    result+=']}'
-    return result
+    // use json.encode
+    // mut result :='{"name":"$store.name","packages":['
+    // if store.packages.len>0{
+    //     for i,p in store.packages{
+    //         result+='{"name":"$p.name","repo":"$p.repo"}'
+    //         if i<store.packages.len-1{
+    //             result+=','
+    //         }
+    //     }
+    // }
+    // result+=']}'
+    return json.encode(store)
 }
 
 // 从git url 上获取 lib 名称
