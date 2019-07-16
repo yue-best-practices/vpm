@@ -1,4 +1,7 @@
 module main
+
+import os
+
 // 获取包管理文件存储路径
 fn get_store_path()string{
     return os.getwd()+'/'+PKG_NAME

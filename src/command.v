@@ -1,4 +1,7 @@
 module main
+
+import os
+
 fn cmd_version(){
     println('vpm version $VERSION')
 }
