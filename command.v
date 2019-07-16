@@ -16,19 +16,16 @@ fn cmd_help(){
 }
 
 fn cmd_clean(){
-    path:=get_store_path()
-    os.rm(path)
+    rm_store_path()
     println('vpm clean success')
 }
 
 fn cmd_init(args []string){
-    path:=get_store_path()
-    exist:=os.file_exists(path)
-    if exist{
+    if check_store_exist(){
         store_exist_warning()
         return 
     }
-    mut name:=os.filename(os.getwd())
+    mut name:=get_default_project_name()
     if args.len>2 && args[2]!=''{
         name=args[2]
     }
@@ -38,9 +35,7 @@ fn cmd_init(args []string){
 }
 
 fn cmd_get(args []string){
-    path:=get_store_path()
-    exist:=os.file_exists(path)
-    if !exist{
+    if !check_store_exist(){
         println('$PKG_NAME not found!')
         return
     }
@@ -63,9 +58,7 @@ fn cmd_get(args []string){
 }
 
 fn cmd_install(){
-    path:=get_store_path()
-    exist:=os.file_exists(path)
-    if !exist{
+    if !check_store_exist(){
         println('$PKG_NAME not found!')
         return
     }

@@ -1,13 +1,47 @@
 module main
+import os
+import json
+
+// 获取命令行参数
+fn get_args()[]string{
+    return os.args
+}
+
+// 获取vroot环境变量
+fn get_v_root_path()string{
+    return os.getenv('VROOT')
+}
+
 // 获取包管理文件存储路径
 fn get_store_path()string{
     return os.getwd()+'/'+PKG_NAME
+}
+
+// 删除包管理文件
+fn rm_store_path(){
+    os.rm(get_store_path())
+}
+
+// 检测包管理文件是否存在
+fn check_store_exist()bool{
+    return os.file_exists(get_store_path())
+}
+
+// 获取项目默认名称(当前所在目录名称)
+fn get_default_project_name()string{
+    return os.filename(os.getwd())
 }
 
 // 获取vlib路径
 fn get_vlib_path()string{
     return '$VROOT/vlib'
 }
+
+// 检测vlib是否存在
+fn check_vlib_exist()bool{
+    return os.dir_exists(get_vlib_path())
+}
+
 // 根据store结构体，生成json
 fn generate_store_tempate(store Store)string{
     // use json.encode

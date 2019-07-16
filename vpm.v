@@ -1,10 +1,9 @@
 module main
-import os
 import json
 const (
     PKG_NAME = '.vpm.json'
     VERSION = '0.0.1'
-    VROOT = os.getenv('VROOT')
+    VROOT = get_v_root_path()
 )
 
 struct PkgInfo {
@@ -55,10 +54,9 @@ fn main() {
         println('Env "VROOT" not set yet. You need set VROOT first.')
         return 
     }
-    vlib_path:=get_vlib_path()
-    if !os.dir_exists(vlib_path){
+    if !check_vlib_exist(){
         println('vlib not found! Please check if "VROOT" is set correctly.')
         return 
     }
-    exec(os.args)
+    exec(get_args())
 }
