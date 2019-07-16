@@ -1,5 +1,4 @@
 module main
-import json
 const (
     PKG_NAME = '.vpm.json'
     VERSION = '0.0.1'
