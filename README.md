@@ -15,7 +15,7 @@ vpm is a package manager for V, written on V.
 ```bash
 $ git clone https://github.com/yue-best-practices/vpm
 $ cd vpm
-$ v -prod
+$ v -prod -o vpm ./src/
 ```
 
 #### CLI Usage

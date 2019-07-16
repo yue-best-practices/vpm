@@ -12,7 +12,7 @@ vpm是一个v语言包管理工具，它用v编写而成。
 
 * 在任意目录下，`git clone https://github.com/yue-best-practices/vpm`
 * `cd vpm`
-* 执行命令`v -prod .`即可编译出`vpm`可执行程序
+* 执行命令`v -prod -o vpm ./src/`即可编译出`vpm`可执行程序
 
 #### 命令
 
