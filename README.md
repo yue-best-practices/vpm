@@ -1,5 +1,9 @@
 # vpm
 
+**Note**: The current V (0.1.17) version fails to build this project.
+
+[issues](https://github.com/vlang/v/issues/1390)
+
 ([Available Chinese README version](README.CN.md))
 
 vpm is a package manager for V, written on V.
@@ -15,7 +19,7 @@ vpm is a package manager for V, written on V.
 ```bash
 $ git clone https://github.com/yue-best-practices/vpm
 $ cd vpm
-$ v -prod
+$ v -prod .
 ```
 
 #### CLI Usage
