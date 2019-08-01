@@ -1,7 +1,4 @@
 # vpm
-**注意**: 目前V(0.1.17)版本构建此项目失败
-
-[issues](https://github.com/vlang/v/issues/1390)
 
 vpm是一个v语言包管理工具，它用v编写而成。
 
