@@ -9,7 +9,14 @@ fn get_args()[]string{
 
 // 获取vroot环境变量
 fn get_v_root_path()string{
-    return os.getenv('VROOT')
+    home:=os.home_dir()
+    if !os.dir_exists(home+'/.vmodules'){
+        println('Creating vmodules directory...')
+        os.mkdir(home+'/.vmodules')
+        println('Done.')
+    }
+    return home
+    // return os.getenv('VROOT')
 }
 
 // 获取包管理文件存储路径
@@ -34,7 +41,8 @@ fn get_default_project_name()string{
 
 // 获取vlib路径
 fn get_vlib_path()string{
-    return '$VROOT/vlib'
+    // return '$VROOT/vlib'
+    return '$VROOT/.vmodules'
 }
 
 // 检测vlib是否存在
