@@ -53,6 +53,9 @@ fn cmd_get(args []string){
         lib_name=args[3]
     }
     pkg_info:=fetch_pkg_from_git(lib_name,git_url)
+    if pkg_info.name==''{
+        return 
+    }
     save_pkginfo_to_store(pkg_info)
     fetch_done(lib_name)
 }

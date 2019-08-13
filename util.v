@@ -140,7 +140,10 @@ fn fetch_pkg_from_git(lib_name,git_url string)PkgInfo{
     }
     // clone lib
     println('fetching "$lib_name" from "$git_url" ...')
-    git_res:=os.exec('git clone $git_url $lib_path')
+    git_res:=os.exec('git clone $git_url $lib_path') or {
+        println('fetch failed')
+        return PkgInfo{name:'',repo:''}
+    }
     println(git_res)
     return pkg_info
 }
