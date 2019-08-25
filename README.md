@@ -32,6 +32,10 @@ $ v -prod .
 | `ls`           |                           | Show installed packages list                                 |
 | `rm`           | `<package-name>`...       | Remove packages in the `vpm.json` file by name               |
 
+#### Packages
+
+For an overview of all the available and supported packages, you can look at [VPM Repository](http://vpmrepository.com).
+
 #### Example
 
 Here is an example of using the `args`  package.
