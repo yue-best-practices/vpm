@@ -115,7 +115,7 @@ fn cmd_rm(args []string){
     mut pkgs:=[]PkgInfo
     mut rm_names:=[]string
     for p in store.packages{
-        if !names.contains(p.name){
+        if !p.name in names{
             pkgs<<p
         }else{
             rm_names<<p.name
