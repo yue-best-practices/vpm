@@ -1,6 +1,6 @@
 # vpm
 
-([Available Chinese README version](README.CN.md))
+([Available Chinese README version](README.CN.md)) | ([Available Portuguese README version](README.PT.md))
 
 vpm(`0.0.2`) is a package manager for V, written on V.
 
@@ -91,4 +91,3 @@ $ ./main hello world
 hello
 world
 ```
-
