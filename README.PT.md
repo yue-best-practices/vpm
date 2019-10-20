@@ -27,7 +27,7 @@ $ v -prod .
 | `init`         | `<project-name>`          | Initializa o projeto (cria o arquivo `vpm.json`)                       |
 | `get`          | `<git-url>`  `<pkg-name>` | Busca o pacote no repositório git (adiciona dependência ao `vpm.json`. |
 | `install`      |                           | Instala o pacote a partir do arquivo `vpm.json`.                       |
-| `-h`/`help`    |                           | Mostraa informações de ajuda.                                          |
+| `-h`/`help`    |                           | Mostra informações de ajuda.                                           |
 | `clean`        |                           | Deleta o arquivo `vpm.json`.                                           |
 | `ls`           |                           | Mostra lista de pacotes instaladas                                     |
 | `rm`           | `<package-name>`...       | Remove pacotes no arquivo `vpm.json` por nome                          |
