@@ -21,7 +21,7 @@ $ v -prod .
 
 #### Uso da CLI
 
-| Command        | Params                    | Description                                                            |
+| Comando        | Parâmetros                | Descrição                                                              |
 | :------------- | :------------------------ | :----------------------------------------------------------------------|
 | `-v`/`version` |                           | Mostra a versao do `vpm`                                               |
 | `init`         | `<project-name>`          | Initializa o projeto (cria o arquivo `vpm.json`)                       |
