@@ -1,6 +1,6 @@
 # vpm
 
-vpm(`0.0.2`)是一个v语言包管理工具，它用v编写而成。
+vpm(`0.0.2`)是一个v语言包管理工具，它用v编写而成。| ([Available Portuguese README version](README.PT.md))
 
 * 目前包下载到`~/.vmodules`目录
 
