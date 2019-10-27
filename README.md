@@ -38,7 +38,7 @@ For an overview of all the available and supported packages, you can look at [VP
 
 #### Example
 
-Here is an example of using the `args`  package.
+Here is an example of using the `vargs`  package.
 
 * Make project directory `test`
 
@@ -60,11 +60,11 @@ $ vim main.v
 ```
 
 ```rust
-import args
+import vargs
 import os
 
 fn main() {
-    _args := args.parse(os.args, 1)
+    _args := vargs.parse(os.args, 1)
     println(_args.str())
     println(_args.command)
     println(_args.unknown[0])
@@ -74,7 +74,7 @@ fn main() {
 * Install `args` package
 
 ```bash
-$ vpm get https://github.com/nedpals/v-args args
+$ vpm get https://github.com/nedpals/v-args vargs
 ```
 
 * Build
