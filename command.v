@@ -96,7 +96,7 @@ fn cmd_ls(){
 }
 
 fn cmd_rm(args []string){
-    mut names:=args.right(2)
+    mut names:=args[2..]
     if names.len==0{
         println('nothing to remove')
         return

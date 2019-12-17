@@ -10,13 +10,15 @@ fn get_args()[]string{
 // 获取vroot环境变量
 fn get_v_root_path()string{
     home:=os.home_dir()
-    if !os.dir_exists(home+'/.vmodules'){
+    if !os.is_dir(home+'/.vmodules'){
         println('Creating vmodules directory...')
-        os.mkdir(home+'/.vmodules')
+        os.mkdir(home+'/.vmodules') or {
+            println('Create vmodules directory failed!')
+            panic(err)
+        }
         println('Done.')
     }
     return home
-    // return os.getenv('VROOT')
 }
 
 // 获取包管理文件存储路径
@@ -31,7 +33,7 @@ fn rm_store_path(){
 
 // 检测包管理文件是否存在
 fn check_store_exist()bool{
-    return os.file_exists(get_store_path())
+    return os.exists(get_store_path())
 }
 
 // 获取项目默认名称(当前所在目录名称)
@@ -47,22 +49,11 @@ fn get_vlib_path()string{
 
 // 检测vlib是否存在
 fn check_vlib_exist()bool{
-    return os.dir_exists(get_vlib_path())
+    return os.is_dir(get_vlib_path())
 }
 
 // 根据store结构体，生成json
 fn generate_store_tempate(store Store)string{
-    // use json.encode
-    // mut result :='{"name":"$store.name","packages":['
-    // if store.packages.len>0{
-    //     for i,p in store.packages{
-    //         result+='{"name":"$p.name","repo":"$p.repo"}'
-    //         if i<store.packages.len-1{
-    //             result+=','
-    //         }
-    //     }
-    // }
-    // result+=']}'
     return json.encode(store)
 }
 
@@ -82,7 +73,7 @@ fn is_git_url(url string)bool{
 // 将json数据写到文件
 fn write_to_json(content string){
     path:=get_store_path()
-    file:=os.create(path) or {
+    mut file:=os.create(path) or {
         println('create file "$path" failed!')
         return 
     }
@@ -134,7 +125,7 @@ fn fetch_pkg_from_git(lib_name,git_url string)PkgInfo{
     pkg_info:=PkgInfo{name:lib_name,repo:git_url}
     lib_path:=get_vlib_path()+'/$lib_name'
     //检测lib_path 是否已经存在
-    if os.dir_exists(lib_path){
+    if os.is_dir(lib_path){
         println('package "$lib_name" already exist')
         return pkg_info
     }

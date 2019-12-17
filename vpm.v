@@ -22,29 +22,40 @@ fn exec(args []string){
         return 
     }
     cmd:=get_cmd(args)
-    switch cmd {
-        case 'init':
+    match cmd {
+        'init' {
             cmd_init(args)
-        case 'clean':
+        }
+        'clean' {
             cmd_clean()
-        case 'get':
+        }
+        'get' {
             cmd_get(args)
-        case 'help':
+        }
+        'help' {
             cmd_help()
-        case '-h':
+        }
+        '-h' {
             cmd_help()
-        case '-v':
+        }    
+        '-v' {
             cmd_version()
-        case 'version':
+        }
+        'version' {
             cmd_version()
-        case 'install':
+        }
+        'install' {
             cmd_install()
-        case 'ls':
+        }
+        'ls' {
             cmd_ls()
-        case 'rm':
+        }
+        'rm' {
             cmd_rm(args)
-        default:
+        }
+        else {
             cmd_default(cmd)
+        }
     }
 }
 
