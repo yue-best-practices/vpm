@@ -8,7 +8,7 @@ vpm(`0.0.2`) is a package manager for V, written on V.
 
 #### Requirements
 
-* V compiler `>=v0.1.17`.
+* V compiler `>=v0.1.23`.
 * Install `git`, because the package is currently downloaded via `git clone`.
 
 #### Building
